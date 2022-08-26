@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Inference for Numerical Data | S1Z Lab 1</title>
+  <meta name="description" content="Inference for Numerical Data | S1Z Lab 1" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Inference for Numerical Data | S1Z Lab 1" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Inference for Numerical Data | S1Z Lab 1" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introducing-the-data.html"/>
+<link rel="next" href="inference-on-means.html"/>
+<script src="libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#welcome-to-s1z-lab-1" id="toc-welcome-to-s1z-lab-1">Welcome to S1Z Lab 1<span></span></a>
+<ul>
+<li><a href="index.html#tidyverse-packages" id="toc-tidyverse-packages"><code>tidyverse</code> packages<span></span></a></li>
+</ul></li>
+<li><a href="introducing-the-data.html#introducing-the-data" id="toc-introducing-the-data">Introducing The Data<span></span></a></li>
+<li><a href="inference-for-numerical-data.html#inference-for-numerical-data" id="toc-inference-for-numerical-data">Inference for Numerical Data<span></span></a>
+<ul>
+<li><a href="inference-for-numerical-data.html#exercise-1" id="toc-exercise-1">Exercise 1<span></span></a></li>
+<li><a href="inference-for-numerical-data.html#exercise-2" id="toc-exercise-2">Exercise 2<span></span></a></li>
+</ul></li>
+<li><a href="inference-on-means.html#inference-on-means" id="toc-inference-on-means">Inference on Means<span></span></a>
+<ul>
+<li><a href="inference-on-means.html#conditions-for-inference-or-a-normality-check" id="toc-conditions-for-inference-or-a-normality-check">Conditions for Inference, or, a Normality Check<span></span></a>
+<ul>
+<li><a href="inference-on-means.html#exercise-3" id="toc-exercise-3">Exercise 3<span></span></a></li>
+<li><a href="inference-on-means.html#exercise-4" id="toc-exercise-4">Exercise 4<span></span></a></li>
+</ul></li>
+<li><a href="inference-on-means.html#confidence-interval" id="toc-confidence-interval">Confidence Interval<span></span></a></li>
+</ul></li>
+<li><a href="group-tasks.html#group-tasks" id="toc-group-tasks">Group Tasks<span></span></a>
+<ul>
+<li><a href="group-tasks.html#pregnancies-questions" id="toc-pregnancies-questions">Pregnancies Questions<span></span></a>
+<ul>
+<li><a href="group-tasks.html#task-1" id="toc-task-1">Task 1<span></span></a></li>
+<li><a href="group-tasks.html#task-2" id="toc-task-2">Task 2<span></span></a></li>
+<li><a href="group-tasks.html#task-3" id="toc-task-3">Task 3<span></span></a></li>
+<li><a href="group-tasks.html#task-4" id="toc-task-4">Task 4<span></span></a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">S1Z Lab 1</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="inference-for-numerical-data" class="section level1 unnumbered hasAnchor">
+<h1>Inference for Numerical Data<a href="inference-for-numerical-data.html#inference-for-numerical-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><img src="images/meet_data.jpg" width="100%" /></p>
+<p>Using the data from the YRBSS survey, we will now analyze the weight of the students in kilograms, stored in the <code>weight</code> variable in the <code>YRBSS</code> data frame. <strong>Please note that for the next section our data set is called <code>YRBSS</code>, the capital letters are important, we will go back to <code>yrbss</code> afterwards though</strong></p>
+<p>We can obtain the summary statistics of the variable by running the following code:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="inference-for-numerical-data.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(YRBSS<span class="sc">$</span>weight)</span></code></pre></div>
+<p>To visualise the distribution of the weights, you may want to produce a box-plot for the <code>weight</code> variable by running the following code:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="inference-for-numerical-data.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> YRBSS, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> weight)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="inference-for-numerical-data.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><br></p>
+<div id="exercise-1" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 1<a href="inference-for-numerical-data.html#exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Another way of visualising the distribution of a variable is to look at the histogram of the data. Write code to produce a histogram for the <code>weight</code> variable.</p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>We want to use the function <code>ggplot()</code>, specifying the data argument and the variable to go along the <span class="math inline">\(x\)</span>-axis. Use <code>geom_histogram()</code> to produce a histogram.</p>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="inference-for-numerical-data.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> YRBSS, <span class="fu">aes</span>(<span class="at">x =</span> weight)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="inference-for-numerical-data.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="main_files/figure-html/ex1_solution-1.png" width="672" /></p>
+</div>
+<p><br></p>
+<strong>How would you describe the distribution of the weights of the students?</strong>
+<div id="radio_OGKOISESUV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_OGKOISESUV" value=""></input> <span>The weights of the students appear fairly normally distributed, but are a little left skewed i.e. have a long tail on the left of the histogram.</span></label><label><input type="radio" autocomplete="off" name="radio_OGKOISESUV" value=""></input> <span>The weights do not actually appear very normally distributed, and probably follow some other distribution.</span></label><label><input type="radio" autocomplete="off" name="radio_OGKOISESUV" value=""></input> <span>The weights are perfectly normally distributed.</span></label><label><input type="radio" autocomplete="off" name="radio_OGKOISESUV" value="answer"></input> <span>The weights of the students appear fairly normally distributed, but are a little right-skewed i.e. have a reasonably long tail on the right of the histogram.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>Look carefully at the shape of the graph, particularly towards the right.</p>
+</div>
+<p><br></p>
+<p>To find how many observations we are missing from the weight variable you can run the following R code:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="inference-for-numerical-data.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(YRBSS<span class="sc">$</span>weight))</span></code></pre></div>
+<p>The <code>is.na()</code> function creates a vector that corresponds to the variable provided, (<code>weight</code> in this instance, from our dataset <strong>YRBSS</strong>) with <code>TRUE</code> for a missing value and <code>FALSE</code> for a non-missing value. The <code>sum()</code> function then adds up the elements in this created vector such that <code>TRUE</code> is equivalent to 1 and <code>FALSE</code> is equivalent to 0 and hence the sum of this vector is equivalent to the number of <code>TRUE</code> entries which calculates how many of these "NA" values there are.</p>
+<p><br></p>
+<p><strong>How many observations are we missing heights from? You will find the previous example useful.</strong>
+<input class='webex-solveme nospaces' size='4' data-answer='["1004"]'/></p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>Use the function <code>sum(is.na(YRBSS$...))</code>.</p>
+</div>
+<p><br></p>
+<p><strong>Please note that for the remaining sections our data set is called <code>yrbss</code> again</strong></p>
+<p>Next, consider the possible relationship between a high schooler's weight and their physical activity. Plotting the data is a useful first step because it helps us quickly visualise trends, identify strong associations and develop research questions.</p>
+<p>First, we will create a new variable <code>physical_3plus</code>, which will be coded as either "yes" if they are physically active for at least 3 days a week, and "no" if not, using the <code>mutate()</code> function.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="inference-for-numerical-data.html#cb8-1" aria-hidden="true" tabindex="-1"></a>yrbss <span class="ot">&lt;-</span> yrbss <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="inference-for-numerical-data.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">physical_3plus =</span> <span class="fu">ifelse</span>(yrbss<span class="sc">$</span>physically_active_7d <span class="sc">&gt;</span> <span class="dv">2</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>))</span></code></pre></div>
+<p>Look at the code below that creates a boxplot. If you wanted to add another dimension to the boxplot, say, splitting it by some other variable, you would want to add an <code>x =</code> argument inside the <code>aes</code> bracket, making sure there's a comma between it and the <code>y = weight</code> part. Some variable name would follow the <code>x =</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="inference-for-numerical-data.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> yrbss, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> weight)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="inference-for-numerical-data.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><br></p>
+</div>
+<div id="exercise-2" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 2<a href="inference-for-numerical-data.html#exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Make a side-by-side boxplot of <code>physical_3plus</code> and <code>weight</code> i.e. a boxplot with the <code>physical_3plus</code> variable on the x axis and the <code>weight</code> variable on the y axis. This will show side by side the boxplots of weights, comparing between the yes and no for <code>physical_3plus</code>.</p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>With the <code>aes()</code> argument you want to specify that <code>x = physical_3plus</code>.</p>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="inference-for-numerical-data.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> yrbss, <span class="fu">aes</span>(<span class="at">x =</span> physical_3plus, <span class="at">y =</span> weight)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="inference-for-numerical-data.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="main_files/figure-html/ex2_solution-1.png" width="672" /></p>
+</div>
+<p><br></p>
+<strong>What could you interpret from this graph?</strong>
+<div id="radio_FHYMIEFRQD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_FHYMIEFRQD" value=""></input> <span>The median weight appears to be significantly higher for those that are not physically active 3+ days a week.</span></label><label><input type="radio" autocomplete="off" name="radio_FHYMIEFRQD" value=""></input> <span>Those that are physically active 3+ days a week on average weigh significantly more.</span></label><label><input type="radio" autocomplete="off" name="radio_FHYMIEFRQD" value=""></input> <span>The mean weight appears to be significantly higher for those that are physically active 3+ days a week.</span></label><label><input type="radio" autocomplete="off" name="radio_FHYMIEFRQD" value="answer"></input> <span>The median weight appears to be significantly higher for those that are physically active 3+ days a week.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>This is just an initial impression, so we don't decide anything for certain yet until we've done some analysis.</p>
+</div>
+<p><br></p>
+<p>The box plots show how the medians of the two distributions compare, but we can also compare the means of the distributions using the same procedure that we used back in Exercise 1, except our summary this time is a mean rather than a count. Run the code below to see the mean weights of the students, separated by "yes" they are physically active 3+ days a week or "no" they aren't.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="inference-for-numerical-data.html#cb11-1" aria-hidden="true" tabindex="-1"></a>yrbss <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="inference-for-numerical-data.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(physical_3plus) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="inference-for-numerical-data.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_weight =</span> <span class="fu">mean</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<p>There is an observed difference, but is this difference statistically significant? In order to answer this question we will conduct a <strong>hypothesis test</strong>.</p>
+<p><br></p>
+
+</div>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introducing-the-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inference-on-means.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["main.pdf", "main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

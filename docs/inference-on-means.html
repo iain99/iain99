@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Inference on Means | S1Z Lab 1</title>
+  <meta name="description" content="Inference on Means | S1Z Lab 1" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Inference on Means | S1Z Lab 1" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Inference on Means | S1Z Lab 1" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="inference-for-numerical-data.html"/>
+<link rel="next" href="group-tasks.html"/>
+<script src="libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#welcome-to-s1z-lab-1" id="toc-welcome-to-s1z-lab-1">Welcome to S1Z Lab 1<span></span></a>
+<ul>
+<li><a href="index.html#tidyverse-packages" id="toc-tidyverse-packages"><code>tidyverse</code> packages<span></span></a></li>
+</ul></li>
+<li><a href="introducing-the-data.html#introducing-the-data" id="toc-introducing-the-data">Introducing The Data<span></span></a></li>
+<li><a href="inference-for-numerical-data.html#inference-for-numerical-data" id="toc-inference-for-numerical-data">Inference for Numerical Data<span></span></a>
+<ul>
+<li><a href="inference-for-numerical-data.html#exercise-1" id="toc-exercise-1">Exercise 1<span></span></a></li>
+<li><a href="inference-for-numerical-data.html#exercise-2" id="toc-exercise-2">Exercise 2<span></span></a></li>
+</ul></li>
+<li><a href="inference-on-means.html#inference-on-means" id="toc-inference-on-means">Inference on Means<span></span></a>
+<ul>
+<li><a href="inference-on-means.html#conditions-for-inference-or-a-normality-check" id="toc-conditions-for-inference-or-a-normality-check">Conditions for Inference, or, a Normality Check<span></span></a>
+<ul>
+<li><a href="inference-on-means.html#exercise-3" id="toc-exercise-3">Exercise 3<span></span></a></li>
+<li><a href="inference-on-means.html#exercise-4" id="toc-exercise-4">Exercise 4<span></span></a></li>
+</ul></li>
+<li><a href="inference-on-means.html#confidence-interval" id="toc-confidence-interval">Confidence Interval<span></span></a></li>
+</ul></li>
+<li><a href="group-tasks.html#group-tasks" id="toc-group-tasks">Group Tasks<span></span></a>
+<ul>
+<li><a href="group-tasks.html#pregnancies-questions" id="toc-pregnancies-questions">Pregnancies Questions<span></span></a>
+<ul>
+<li><a href="group-tasks.html#task-1" id="toc-task-1">Task 1<span></span></a></li>
+<li><a href="group-tasks.html#task-2" id="toc-task-2">Task 2<span></span></a></li>
+<li><a href="group-tasks.html#task-3" id="toc-task-3">Task 3<span></span></a></li>
+<li><a href="group-tasks.html#task-4" id="toc-task-4">Task 4<span></span></a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">S1Z Lab 1</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="inference-on-means" class="section level1 unnumbered hasAnchor">
+<h1>Inference on Means<a href="inference-on-means.html#inference-on-means" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="conditions-for-inference-or-a-normality-check" class="section level2 unnumbered hasAnchor">
+<h2>Conditions for Inference, or, a Normality Check<a href="inference-on-means.html#conditions-for-inference-or-a-normality-check" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As seen on the bottom of <a href="https://www.openintro.org/redirect.php?go=os4_tablet&referrer=/stat/os4.php#page=251" target="_blank">OpenIntro Page 251</a> two conditions are required for making inference on numerical variables:</p>
+<ul>
+<li><p><strong>Independence:</strong> The sample observations must be independent. The most common way to satisfy this condition is when the sample is a simple random sample from the population.</p></li>
+<li><p><strong>Normality:</strong> When a sample is small, we also require that the sample observations come from a normally distributed population. We can relax this condition more and more for larger and larger sample sizes. This condition is obviously vague, making it difficult to evaluate, so next we introduce a couple rules of thumb to make checking this condition easier.</p>
+<ul>
+<li><p><span class="math inline">\(n &lt; 30:\)</span> If the sample size n is less than 30 <em>and</em> there are no clear outliers in the data, then we typically assume the data come from a normal enough distribution to satisfy the condition.</p></li>
+<li><p><span class="math inline">\(n \geq 30:\)</span> If the sample size n is at least 30 and there are no <em>particularly</em> extreme outliers, then we typically assume adequate normality.</p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<div id="exercise-3" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 3<a href="inference-on-means.html#exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Are all conditions necessary for inference satisfied for our data?</p>
+<p><br></p>
+<strong>Is the independence condition satisfied?</strong>
+<div id="radio_RAGWUTLKUM" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RAGWUTLKUM" value="answer"></input> <span>Yes</span></label><label><input type="radio" autocomplete="off" name="radio_RAGWUTLKUM" value=""></input> <span>No</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>Consider the structure of the data i.e. The collection of students. In general, are the students independent of one another?</p>
+</div>
+<p><br></p>
+<p>Both the sample size and the distribution of the boxplots would help us verify normality. Compute the sizes of the two groups, (yes/no for the <code>physical_3plus</code> variable) by using the <code>summarise()</code> function. Also recreate the boxplot of <code>physical_3plus</code> and <code>weight</code> from Exercise 2 to check the normality assumption.</p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>To count the group sizes, you first want to <code>group_by</code> the variable <code>physical_3plus</code>, and then <code>count</code> the number of observations, <code>n()</code>, there are in each group.
+To make the boxplot, <code>physical_3plus</code> should be along the <span class="math inline">\(x\)</span>-axis and <code>weight</code> should be along the <span class="math inline">\(y\)</span>-axis.</p>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="inference-on-means.html#cb12-1" aria-hidden="true" tabindex="-1"></a>yrbss <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="inference-on-means.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(physical_3plus) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="inference-on-means.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 2
+##   physical_3plus count
+##   &lt;chr&gt;          &lt;int&gt;
+## 1 no              2656
+## 2 yes             5695</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="inference-on-means.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(yrbss, <span class="fu">aes</span>(<span class="at">y =</span> weight, <span class="at">x =</span> physical_3plus)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="inference-on-means.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="main_files/figure-html/ex3_solution-1.png" width="672" /></p>
+</div>
+<br>
+<strong>Is the normality condition satisfied?</strong>
+<div id="radio_KLCLBYMVOI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KLCLBYMVOI" value="answer"></input> <span>Yes</span></label><label><input type="radio" autocomplete="off" name="radio_KLCLBYMVOI" value=""></input> <span>No</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>Consider the size of the two groups and whether any outliers are extreme.</p>
+</div>
+<p><br></p>
+</div>
+<div id="exercise-4" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 4<a href="inference-on-means.html#exercise-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Since the assumptions of independence and normality are both satisfied, we can proceed with making inference, and hence construct confidence intervals or perform a hypothesis test about the weight variable for those who exercise at least three times a week and those who don't.</p>
+<p>Let
+<span class="math display">\[\mu_l = \textrm{Average weight of a student who is physically active less than 3 days a week}\]</span>
+and</p>
+<p><span class="math display">\[\mu_m = \textrm{Average weight of a student who is physically active 3 or more days a week}\]</span></p>
+<p><br></p>
+<strong>What are the null and alternative hypotheses for testing if the average weights are different for those who exercise at least three times a week and those who don’t?</strong>
+<div id="radio_ZXOYZRWCMR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZXOYZRWCMR" value=""></input> <span><span class="math inline">\(H_0: \mu_l = \mu_m , H_1: \mu_l &gt; \mu_m\)</span></span></label><label><input type="radio" autocomplete="off" name="radio_ZXOYZRWCMR" value=""></input> <span><span class="math inline">\(H_0: \mu_l = \mu_m , H_1: \mu_l &lt; \mu_m\)</span></span></label><label><input type="radio" autocomplete="off" name="radio_ZXOYZRWCMR" value=""></input> <span><span class="math inline">\(H_0: \mu_l \ne \mu_m , H_1: \mu_l = \mu_m\)</span></span></label><label><input type="radio" autocomplete="off" name="radio_ZXOYZRWCMR" value="answer"></input> <span><span class="math inline">\(H_0: \mu_l = \mu_m , H_1: \mu_l \ne \mu_m\)</span></span></label>
+</div>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>The only question you can answer is whether there is a statistically significant difference between the two average weights. You can't test at the moment how different they are.</p>
+</div>
+<p><br></p>
+</div>
+</div>
+<div id="confidence-interval" class="section level2 unnumbered hasAnchor">
+<h2>Confidence Interval<a href="inference-on-means.html#confidence-interval" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Next, we will be conducting a hypothesis test, and ultimately a confidence interval, for a <strong>difference of two means</strong>. Namely, the mean weights in the two groups (those that are active 3+ days a week and the other group that aren't). More details on this can be found on <a href="https://www.openintro.org/redirect.php?go=os4_tablet&referrer=/stat/os4.php#page=267" target="_blank">page 267 of the OpenIntro textbook</a>.</p>
+<p>In general, we have some sort of
+<span class="math display">\[\textrm{Statistic} \pm \textrm{Percentile of a distribution}*\textrm{Standard Error}\]</span></p>
+<p>More specifically, we have the following:
+<span class="math display">\[(\mu_1 - \mu_2) \pm t^* \times \textrm{SE}\]</span></p>
+<p>So our new statistic is <span class="math inline">\((\mu_1 - \mu_2)\)</span>, the difference in averages between the two groups, our new percentile is <span class="math inline">\(t^*\)</span>, from something called the t-distribution rather than the standard Normal distribution. The standard error <span class="math inline">\(\textrm{SE}\)</span> now equals</p>
+<p><span class="math display">\[\textrm{SE} = \sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}\]</span></p>
+<p>where <span class="math inline">\(n_1\)</span>, <span class="math inline">\(n_2\)</span> are the sample sizes of the two groups you're considering and <span class="math inline">\(\sigma_1^2\)</span>, <span class="math inline">\(\sigma_2^2\)</span> are the variances of the two groups. Putting it all together, our confidence interval for the difference in means between two groups is:</p>
+<p><span class="math display">\[(\mu_1 - \mu_2) \pm t^* \times \sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}\]</span></p>
+<p>We first calculate <span class="math inline">\((\mu_1 - \mu_2)\)</span>, which we will save as <code>obs_diff</code>. This is the difference in the two means of the weights of the two groups of students; one that is active 3+ days a week and the other group that isn't. Namely we are taking group 1 to be "yes" active 3+ days a week and group 2 to be "no" not active 3+ days a week.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="inference-on-means.html#cb15-1" aria-hidden="true" tabindex="-1"></a>yes <span class="ot">&lt;-</span> yrbss <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="inference-on-means.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(physical_3plus <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>)</span>
+<span id="cb15-3"><a href="inference-on-means.html#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="inference-on-means.html#cb15-4" aria-hidden="true" tabindex="-1"></a>no <span class="ot">&lt;-</span> yrbss <span class="sc">%&gt;%</span></span>
+<span id="cb15-5"><a href="inference-on-means.html#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(physical_3plus <span class="sc">==</span> <span class="st">&quot;no&quot;</span>)</span>
+<span id="cb15-6"><a href="inference-on-means.html#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="inference-on-means.html#cb15-7" aria-hidden="true" tabindex="-1"></a>mu1 <span class="ot">&lt;-</span> <span class="fu">mean</span>(yes<span class="sc">$</span>weight)</span>
+<span id="cb15-8"><a href="inference-on-means.html#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="inference-on-means.html#cb15-9" aria-hidden="true" tabindex="-1"></a>mu2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(no<span class="sc">$</span>weight)</span>
+<span id="cb15-10"><a href="inference-on-means.html#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="inference-on-means.html#cb15-11" aria-hidden="true" tabindex="-1"></a>obs_diff <span class="ot">&lt;-</span> (mu1 <span class="sc">-</span> mu2)</span></code></pre></div>
+<p><br></p>
+<p>Now recall our calculation from Exercise 3 to get our <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span> i.e. the sizes of the two groups, remembering that "yes" means group 1 and "no" means group 2.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="inference-on-means.html#cb16-1" aria-hidden="true" tabindex="-1"></a>yrbss <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="inference-on-means.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(physical_3plus) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="inference-on-means.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 2
+##   physical_3plus count
+##   &lt;chr&gt;          &lt;int&gt;
+## 1 no              2656
+## 2 yes             5695</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="inference-on-means.html#cb18-1" aria-hidden="true" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="dv">5695</span></span>
+<span id="cb18-2"><a href="inference-on-means.html#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="inference-on-means.html#cb18-3" aria-hidden="true" tabindex="-1"></a>n2 <span class="ot">&lt;-</span> <span class="dv">2656</span></span></code></pre></div>
+<p><br></p>
+<p>Next, our <span class="math inline">\(t^*\)</span> value. As it happens, (due to a rigorously proved and fascinating result in Statistics), for sufficiently large n, the t-distribution tends toward the normal distribution. As in, when your sample size is big enough the t distribution is basically identical to the standard normal distribution. Therefore, since the samples we have are so large, our <span class="math inline">\(t^*\)</span> value this time is also 1.96 for a 95% confidence interval. Make sure you always check though, because you often will have a smaller sample and therefore your <span class="math inline">\(t^*\)</span> will be different!</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="inference-on-means.html#cb19-1" aria-hidden="true" tabindex="-1"></a>t.star <span class="ot">&lt;-</span> <span class="fl">1.96</span></span></code></pre></div>
+<p><br></p>
+<p>Now we will get the variances of the two groups.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="inference-on-means.html#cb20-1" aria-hidden="true" tabindex="-1"></a>sigma_squared_1 <span class="ot">&lt;-</span> <span class="fu">var</span>(yes<span class="sc">$</span>weight)</span>
+<span id="cb20-2"><a href="inference-on-means.html#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="inference-on-means.html#cb20-3" aria-hidden="true" tabindex="-1"></a>sigma_squared_2 <span class="ot">&lt;-</span> <span class="fu">var</span>(no<span class="sc">$</span>weight)</span></code></pre></div>
+<p><br></p>
+<p>Finally, let's put it all together and get our confidence interval!</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="inference-on-means.html#cb21-1" aria-hidden="true" tabindex="-1"></a>standard.error <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((sigma_squared_1<span class="sc">/</span>n1) <span class="sc">+</span> (sigma_squared_2<span class="sc">/</span>n2))</span>
+<span id="cb21-2"><a href="inference-on-means.html#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="inference-on-means.html#cb21-3" aria-hidden="true" tabindex="-1"></a>lower.bound <span class="ot">&lt;-</span> obs_diff <span class="sc">-</span> t.star<span class="sc">*</span>standard.error</span>
+<span id="cb21-4"><a href="inference-on-means.html#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="inference-on-means.html#cb21-5" aria-hidden="true" tabindex="-1"></a>upper.bound <span class="ot">&lt;-</span> obs_diff <span class="sc">+</span> t.star<span class="sc">*</span>standard.error</span>
+<span id="cb21-6"><a href="inference-on-means.html#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="inference-on-means.html#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(lower.bound, upper.bound)</span></code></pre></div>
+<pre><code>## [1] 0.7215522 2.3338998</code></pre>
+<p><br></p>
+<p><strong>Note</strong> It is equivalent to slightly re-arrange the above null and alternative hypotheses, that is we consider the difference between two means such that:</p>
+<p><span class="math display">\[H_0:  \mu_l - \mu_m = 0\]</span></p>
+<p><span class="math display">\[H_1: \mu_l - \mu_m \ne 0\]</span></p>
+<p>Namely there is no difference between the average weights of the two groups of students, or there is a difference in average weights between the two groups. Notice this is just a rearranging of the equation.</p>
+<p><br></p>
+<strong>Looking at the confidence interval, what do you conclude?</strong>
+<div id="radio_FLYEYVXDIE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_FLYEYVXDIE" value=""></input> <span>Since the CI does not contain 0, we fail to reject the null hypothesis i.e. conclude that there is no statistically significant difference in the mean weights of students who are and aren't physcially active 3+ days a week.</span></label><label><input type="radio" autocomplete="off" name="radio_FLYEYVXDIE" value="answer"></input> <span>Since the CI does not contain 0, we reject the null hypothesis in favour of the alternative i.e. We conclude there is a statistically significant difference in the mean weights of students who are and aren't physcially active 3+ days a week.</span></label><label><input type="radio" autocomplete="off" name="radio_FLYEYVXDIE" value=""></input> <span>Since the CI contains 0, we fail to reject the null hypothesis i.e. conclude that there is a statistically significant difference in the mean weights of students who are and aren't physcially active 3+ days a week.</span></label><label><input type="radio" autocomplete="off" name="radio_FLYEYVXDIE" value=""></input> <span>Since the obs. dif. value is outside of the CI, we fail to reject the null hypothesis i.e. We conclude there is no statistically significant difference in the mean weights of students who are and aren't physcially active 3+ days a week.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>Consider whether the interval contains a certain vital number.</p>
+</div>
+<p><br></p>
+
+</div>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="inference-for-numerical-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="group-tasks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["main.pdf", "main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
