@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Exploring the Data | S1Z Lab 2</title>
+  <meta name="description" content="Exploring the Data | S1Z Lab 2" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Exploring the Data | S1Z Lab 2" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Exploring the Data | S1Z Lab 2" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="coping-with-surgery.html"/>
+<link rel="next" href="anova.html"/>
+<script src="libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#welcome-to-s1z-lab-1" id="toc-welcome-to-s1z-lab-1">Welcome to S1Z Lab 1<span></span></a></li>
+<li><a href="coping-with-surgery.html#coping-with-surgery" id="toc-coping-with-surgery">Coping With Surgery<span></span></a>
+<ul>
+<li><a href="coping-with-surgery.html#context" id="toc-context">Context<span></span></a></li>
+<li><a href="coping-with-surgery.html#research-questions" id="toc-research-questions">Research Questions<span></span></a></li>
+<li><a href="coping-with-surgery.html#data" id="toc-data">Data<span></span></a></li>
+</ul></li>
+<li><a href="exploring-the-data.html#exploring-the-data" id="toc-exploring-the-data">Exploring the Data<span></span></a>
+<ul>
+<li><a href="exploring-the-data.html#importing-the-data" id="toc-importing-the-data">Importing the Data<span></span></a>
+<ul>
+<li><a href="exploring-the-data.html#exercise-1" id="toc-exercise-1">Exercise 1<span></span></a></li>
+</ul></li>
+<li><a href="exploring-the-data.html#creating-boxplot" id="toc-creating-boxplot">Creating boxplot<span></span></a>
+<ul>
+<li><a href="exploring-the-data.html#exercise-2" id="toc-exercise-2">Exercise 2<span></span></a></li>
+</ul></li>
+<li><a href="exploring-the-data.html#producing-summary-measures" id="toc-producing-summary-measures">Producing summary measures<span></span></a>
+<ul>
+<li><a href="exploring-the-data.html#exercise-3" id="toc-exercise-3">Exercise 3<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="anova.html#anova" id="toc-anova">ANOVA<span></span></a>
+<ul>
+<li><a href="anova.html#hypotheses" id="toc-hypotheses">Hypotheses<span></span></a></li>
+<li><a href="anova.html#anova-table" id="toc-anova-table">ANOVA table<span></span></a>
+<ul>
+<li><a href="anova.html#exercise-4" id="toc-exercise-4">Exercise 4<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="multiple-comparisons.html#multiple-comparisons" id="toc-multiple-comparisons">Multiple Comparisons<span></span></a>
+<ul>
+<li><a href="multiple-comparisons.html#exercise-5" id="toc-exercise-5">Exercise 5<span></span></a></li>
+</ul></li>
+<li><a href="graphical-diagnostics.html#graphical-diagnostics" id="toc-graphical-diagnostics">Graphical Diagnostics<span></span></a>
+<ul>
+<li><a href="graphical-diagnostics.html#independence-assumption" id="toc-independence-assumption">Independence assumption<span></span></a></li>
+<li><a href="graphical-diagnostics.html#normality-assumption" id="toc-normality-assumption">Normality assumption<span></span></a>
+<ul>
+<li><a href="graphical-diagnostics.html#exercise-6" id="toc-exercise-6">Exercise 6<span></span></a></li>
+<li><a href="graphical-diagnostics.html#exercise-7" id="toc-exercise-7">Exercise 7<span></span></a></li>
+<li><a href="graphical-diagnostics.html#exercise-8" id="toc-exercise-8">Exercise 8<span></span></a></li>
+</ul></li>
+<li><a href="graphical-diagnostics.html#constant-variance-across-groups" id="toc-constant-variance-across-groups">Constant variance across groups<span></span></a></li>
+</ul></li>
+<li><a href="group-tasks.html#group-tasks" id="toc-group-tasks">Group Tasks<span></span></a>
+<ul>
+<li><a href="group-tasks.html#context-1" id="toc-context-1">Context<span></span></a></li>
+<li><a href="group-tasks.html#research-questions-1" id="toc-research-questions-1">Research Questions<span></span></a></li>
+<li><a href="group-tasks.html#data-1" id="toc-data-1">Data<span></span></a></li>
+<li><a href="group-tasks.html#loading-the-data" id="toc-loading-the-data">Loading the Data<span></span></a></li>
+<li><a href="group-tasks.html#task-1" id="toc-task-1">Task 1<span></span></a></li>
+<li><a href="group-tasks.html#task-2" id="toc-task-2">Task 2<span></span></a></li>
+<li><a href="group-tasks.html#task-3" id="toc-task-3">Task 3<span></span></a></li>
+<li><a href="group-tasks.html#task-4" id="toc-task-4">Task 4<span></span></a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">S1Z Lab 2</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exploring-the-data" class="section level1 unnumbered hasAnchor">
+<h1>Exploring the Data<a href="exploring-the-data.html#exploring-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><img src="images/summary_statistics.jpg" width="100%" /></p>
+<p>In this section, you will explore the data by computing summary statistics and visualizing the data.</p>
+<div id="importing-the-data" class="section level2 unnumbered hasAnchor">
+<h2>Importing the Data<a href="exploring-the-data.html#importing-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The data to be analyzed are saved in a dataframe object called <code>surgery</code> which can be imported using the following code.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="exploring-the-data.html#cb1-1" aria-hidden="true" tabindex="-1"></a>surgery <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">url</span>(<span class="st">&quot;https://raw.githubusercontent.com/StephenVillejo/S1Z.AnovaLab/main/surgery.csv&quot;</span>))</span>
+<span id="cb1-2"><a href="exploring-the-data.html#cb1-2" aria-hidden="true" tabindex="-1"></a>surgery</span></code></pre></div>
+<p><br></p>
+<div id="exercise-1" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 1<a href="exploring-the-data.html#exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Modify the code above to limit the number of rows of <code>surgery</code> printed to only 5.</p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>The function <code>head()</code> will give a limited view of a dataset.</p>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="exploring-the-data.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(surgery)</span></code></pre></div>
+<pre><code>##   INITIAL FINAL TREAT RESPONSE    TYPE
+## 1    30.2  32.0     1      1.8 control
+## 2    35.3  34.8     1     -0.5 control
+## 3    32.4  34.6     1      2.2 control
+## 4    31.9  34.2     1      2.3 control
+## 5    28.4  30.3     1      1.9 control
+## 6    30.5  33.2     1      2.7 control</code></pre>
+</div>
+<p><br></p>
+</div>
+</div>
+<div id="creating-boxplot" class="section level2 unnumbered hasAnchor">
+<h2>Creating boxplot<a href="exploring-the-data.html#creating-boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The basic code below produces a boxplot of the variable <code>RESPONSE</code> by <code>TYPE</code>. Specified in the <code>ggplot()</code> function is the (1) <code>data</code> argument which is the data frame to use for plot, and the (2) <code>mapping</code> argument which describes how the variables in the data are mapped to the visual properties (aesthetics) of the plot that you want. In the mapping argument, we specify in the <code>x</code> argument our grouping variable which is <code>TYPE</code> and in the <code>y</code> argument the variable whose values we plot which is <code>RESPONSE</code> in our data. Finally, we use the <code>geom_boxplot()</code> function to produce the boxplot.</p>
+<p>Run this code in your own <code>R</code> console to view the boxplot.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="exploring-the-data.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> surgery, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>TYPE, <span class="at">y=</span>RESPONSE)) <span class="sc">+</span> </span>
+<span id="cb4-2"><a href="exploring-the-data.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><br></p>
+<div id="exercise-2" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 2<a href="exploring-the-data.html#exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Using the <code>labs()</code> function, modify the code above to put a title in the plot. In the <code>labs()</code> function, the argument for the title is called <code>title</code>.</p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>You want to include in the code <code>labs(title = "Boxplot of the response variable by type of treatment")</code>.</p>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="exploring-the-data.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> surgery, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>TYPE, <span class="at">y=</span>RESPONSE)) <span class="sc">+</span> </span>
+<span id="cb5-2"><a href="exploring-the-data.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb5-3"><a href="exploring-the-data.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Boxplot of the response variable by type of treatment&quot;</span>)</span></code></pre></div>
+<p><img src="main_files/figure-html/ex2_solution-1.png" width="672" /></p>
+</div>
+<p><br></p>
+<strong>Which group appears to have the highest increase in the score on the average?</strong>
+<div id="radio_PHOBGHMZPX" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PHOBGHMZPX" value=""></input> <span>aversion</span></label><label><input type="radio" autocomplete="off" name="radio_PHOBGHMZPX" value="answer"></input> <span>drug</span></label><label><input type="radio" autocomplete="off" name="radio_PHOBGHMZPX" value=""></input> <span>behav</span></label><label><input type="radio" autocomplete="off" name="radio_PHOBGHMZPX" value=""></input> <span>control</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>Compare the lines inside the boxes and see which among the four is the largest. Recall that the line inside the box of a boxplot corresponds to the median.</p>
+</div>
+<p><br></p>
+<strong>Which of the following can be said on the increase in the score for the aversion group?</strong>
+<div id="radio_KAIDGWVFJC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KAIDGWVFJC" value=""></input> <span>The scores of the aversion group are badly skewed with some outliers.</span></label><label><input type="radio" autocomplete="off" name="radio_KAIDGWVFJC" value="answer"></input> <span>Some of the patients in the aversion group have lower final score compared to the initial anxiety score.</span></label><label><input type="radio" autocomplete="off" name="radio_KAIDGWVFJC" value=""></input> <span>The median score is closer to the 3rd quartile than the 2nd quartile.</span></label><label><input type="radio" autocomplete="off" name="radio_KAIDGWVFJC" value=""></input> <span>The median difference between the final and initial score is close to zero.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>Recall how to interpret the boxplot. The line that divides the box into two parts is the median, while the two lines that form the box are the 1st and 3rd quartiles. When the median is very close to either the bottom or top of the box, and if a whisker is more extended while the other whisker is shorter, then the distribution is skewed. Finally, a data point that is located outside the whiskers of the box plot is an outlier."</p>
+</div>
+<p><br></p>
+</div>
+</div>
+<div id="producing-summary-measures" class="section level2 unnumbered hasAnchor">
+<h2>Producing summary measures<a href="exploring-the-data.html#producing-summary-measures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The code below produces the mean of the variable <code>RESPONSE</code> by <code>TYPE</code>. The code uses pipes, denoted by <code>%&gt;%</code>, which is a powerful tool for expressing a sequence of multiple operations. The code starts with specifying the dataframe <code>surgery</code>. Next, it uses the <code>group_by()</code> function so that the succeeding operations are performed by group. We specify inside the <code>group_by()</code> function the grouping variable which is <code>TYPE</code>. Finally, we use the <code>summarise()</code> function to compute summary statistics. In the code below, we use the function <code>mean()</code> to compute the mean. The <code>summarise()</code> function produces a new data frame with the number of rows as the number of groups and the number of columns as the number of summary measures computed. You may specify more than one function, separated by <code>,</code>, inside the <code>summarise()</code> function if you wish to compute other summary measures in addition to the mean.</p>
+<p>Run this code in your own <code>R</code> console to view the summary.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="exploring-the-data.html#cb6-1" aria-hidden="true" tabindex="-1"></a>surgery <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="exploring-the-data.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TYPE) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="exploring-the-data.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(RESPONSE))</span></code></pre></div>
+<p><br></p>
+<div id="exercise-3" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 3<a href="exploring-the-data.html#exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Modify the code above to produce both the mean and the standard deviation for each treatment group.</p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>Within the <code>summarise()</code> function, you want to calculate the standard deviation as well as the mean, using <code>sd()</code>.</p>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="exploring-the-data.html#cb7-1" aria-hidden="true" tabindex="-1"></a>surgery <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="exploring-the-data.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TYPE) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="exploring-the-data.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(RESPONSE) , <span class="at">sd =</span> <span class="fu">sd</span>(RESPONSE))</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 3
+##   TYPE      mean    sd
+##   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
+## 1 aversion  0.44 1.35 
+## 2 behav     1.5  0.688
+## 3 control   1.45 0.981
+## 4 drug      5.79 0.933</code></pre>
+</div>
+<p><br></p>
+<strong>Which of the following is/are true?</strong>
+<div id="radio_BEKAQWLOCA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BEKAQWLOCA" value="answer"></input> <span>The variability in the response variable is highest in the group of patients who underwent the aversion therapy.</span></label><label><input type="radio" autocomplete="off" name="radio_BEKAQWLOCA" value=""></input> <span>The patients in the control group experienced the least mean improvement in anxiety levels among the four treatment groups.</span></label>
+</div>
+<div id="radio_JGYQXIPUZB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_JGYQXIPUZB" value="answer"></input> <span>The patients who underwent the drug therapy experienced the highest mean decline in the anxiety level.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>Recall how to interpet basic summary statistics such as mean, median, standard deviation, and skewness.</p>
+</div>
+<p><br></p>
+
+</div>
+</div>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="coping-with-surgery.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["main.pdf", "main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

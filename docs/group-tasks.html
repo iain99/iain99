@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Group Tasks | S1Z Lab 1</title>
-  <meta name="description" content="Group Tasks | S1Z Lab 1" />
+  <title>Group Tasks | S1Z Lab 2</title>
+  <meta name="description" content="Group Tasks | S1Z Lab 2" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Group Tasks | S1Z Lab 1" />
+  <meta property="og:title" content="Group Tasks | S1Z Lab 2" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Group Tasks | S1Z Lab 1" />
+  <meta name="twitter:title" content="Group Tasks | S1Z Lab 2" />
   
   
   
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="inference-on-means.html"/>
+<link rel="prev" href="graphical-diagnostics.html"/>
 
 <script src="libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -134,34 +134,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="index.html#welcome-to-s1z-lab-1" id="toc-welcome-to-s1z-lab-1">Welcome to S1Z Lab 1<span></span></a>
+<li><a href="index.html#welcome-to-s1z-lab-1" id="toc-welcome-to-s1z-lab-1">Welcome to S1Z Lab 1<span></span></a></li>
+<li><a href="coping-with-surgery.html#coping-with-surgery" id="toc-coping-with-surgery">Coping With Surgery<span></span></a>
 <ul>
-<li><a href="index.html#tidyverse-packages" id="toc-tidyverse-packages"><code>tidyverse</code> packages<span></span></a></li>
+<li><a href="coping-with-surgery.html#context" id="toc-context">Context<span></span></a></li>
+<li><a href="coping-with-surgery.html#research-questions" id="toc-research-questions">Research Questions<span></span></a></li>
+<li><a href="coping-with-surgery.html#data" id="toc-data">Data<span></span></a></li>
 </ul></li>
-<li><a href="introducing-the-data.html#introducing-the-data" id="toc-introducing-the-data">Introducing The Data<span></span></a></li>
-<li><a href="inference-for-numerical-data.html#inference-for-numerical-data" id="toc-inference-for-numerical-data">Inference for Numerical Data<span></span></a>
+<li><a href="exploring-the-data.html#exploring-the-data" id="toc-exploring-the-data">Exploring the Data<span></span></a>
 <ul>
-<li><a href="inference-for-numerical-data.html#exercise-1" id="toc-exercise-1">Exercise 1<span></span></a></li>
-<li><a href="inference-for-numerical-data.html#exercise-2" id="toc-exercise-2">Exercise 2<span></span></a></li>
+<li><a href="exploring-the-data.html#importing-the-data" id="toc-importing-the-data">Importing the Data<span></span></a>
+<ul>
+<li><a href="exploring-the-data.html#exercise-1" id="toc-exercise-1">Exercise 1<span></span></a></li>
 </ul></li>
-<li><a href="inference-on-means.html#inference-on-means" id="toc-inference-on-means">Inference on Means<span></span></a>
+<li><a href="exploring-the-data.html#creating-boxplot" id="toc-creating-boxplot">Creating boxplot<span></span></a>
 <ul>
-<li><a href="inference-on-means.html#conditions-for-inference-or-a-normality-check" id="toc-conditions-for-inference-or-a-normality-check">Conditions for Inference, or, a Normality Check<span></span></a>
-<ul>
-<li><a href="inference-on-means.html#exercise-3" id="toc-exercise-3">Exercise 3<span></span></a></li>
-<li><a href="inference-on-means.html#exercise-4" id="toc-exercise-4">Exercise 4<span></span></a></li>
+<li><a href="exploring-the-data.html#exercise-2" id="toc-exercise-2">Exercise 2<span></span></a></li>
 </ul></li>
-<li><a href="inference-on-means.html#confidence-interval" id="toc-confidence-interval">Confidence Interval<span></span></a></li>
+<li><a href="exploring-the-data.html#producing-summary-measures" id="toc-producing-summary-measures">Producing summary measures<span></span></a>
+<ul>
+<li><a href="exploring-the-data.html#exercise-3" id="toc-exercise-3">Exercise 3<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="anova.html#anova" id="toc-anova">ANOVA<span></span></a>
+<ul>
+<li><a href="anova.html#hypotheses" id="toc-hypotheses">Hypotheses<span></span></a></li>
+<li><a href="anova.html#anova-table" id="toc-anova-table">ANOVA table<span></span></a>
+<ul>
+<li><a href="anova.html#exercise-4" id="toc-exercise-4">Exercise 4<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="multiple-comparisons.html#multiple-comparisons" id="toc-multiple-comparisons">Multiple Comparisons<span></span></a>
+<ul>
+<li><a href="multiple-comparisons.html#exercise-5" id="toc-exercise-5">Exercise 5<span></span></a></li>
+</ul></li>
+<li><a href="graphical-diagnostics.html#graphical-diagnostics" id="toc-graphical-diagnostics">Graphical Diagnostics<span></span></a>
+<ul>
+<li><a href="graphical-diagnostics.html#independence-assumption" id="toc-independence-assumption">Independence assumption<span></span></a></li>
+<li><a href="graphical-diagnostics.html#normality-assumption" id="toc-normality-assumption">Normality assumption<span></span></a>
+<ul>
+<li><a href="graphical-diagnostics.html#exercise-6" id="toc-exercise-6">Exercise 6<span></span></a></li>
+<li><a href="graphical-diagnostics.html#exercise-7" id="toc-exercise-7">Exercise 7<span></span></a></li>
+<li><a href="graphical-diagnostics.html#exercise-8" id="toc-exercise-8">Exercise 8<span></span></a></li>
+</ul></li>
+<li><a href="graphical-diagnostics.html#constant-variance-across-groups" id="toc-constant-variance-across-groups">Constant variance across groups<span></span></a></li>
 </ul></li>
 <li><a href="group-tasks.html#group-tasks" id="toc-group-tasks">Group Tasks<span></span></a>
 <ul>
-<li><a href="group-tasks.html#pregnancies-questions" id="toc-pregnancies-questions">Pregnancies Questions<span></span></a>
-<ul>
+<li><a href="group-tasks.html#context-1" id="toc-context-1">Context<span></span></a></li>
+<li><a href="group-tasks.html#research-questions-1" id="toc-research-questions-1">Research Questions<span></span></a></li>
+<li><a href="group-tasks.html#data-1" id="toc-data-1">Data<span></span></a></li>
+<li><a href="group-tasks.html#loading-the-data" id="toc-loading-the-data">Loading the Data<span></span></a></li>
 <li><a href="group-tasks.html#task-1" id="toc-task-1">Task 1<span></span></a></li>
 <li><a href="group-tasks.html#task-2" id="toc-task-2">Task 2<span></span></a></li>
 <li><a href="group-tasks.html#task-3" id="toc-task-3">Task 3<span></span></a></li>
 <li><a href="group-tasks.html#task-4" id="toc-task-4">Task 4<span></span></a></li>
-</ul></li>
 </ul></li>
 </ul>
 
@@ -172,7 +199,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">S1Z Lab 1</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">S1Z Lab 2</a>
           </h1>
         </div>
 
@@ -182,60 +209,100 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="group-tasks" class="section level1 unnumbered hasAnchor">
 <h1>Group Tasks<a href="group-tasks.html#group-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The group tasks in this lab will <strong>not be assessed</strong>, however they do offer good practise into writing your own code in <code>R</code>.</p>
-<div id="pregnancies-questions" class="section level2 unnumbered hasAnchor">
-<h2>Pregnancies Questions<a href="group-tasks.html#pregnancies-questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In 2004, the state of North Carolina released a large data set containing information on births recorded in this state. This data set is useful to researchers studying the relation between habits and practices of expectant mothers and the birth of their children. We will work with a random sample of observations from this data set.</p>
-<p>Load the <code>nc</code> data set into your workspace by typing the following code in an Rscript file in your local Rstudio.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="group-tasks.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">&quot;http://www.openintro.org/stat/data/nc.RData&quot;</span>, <span class="at">destfile =</span> <span class="st">&quot;nc.RData&quot;</span>)</span>
-<span id="cb23-2"><a href="group-tasks.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;nc.RData&quot;</span>)</span></code></pre></div>
-<p>Before attempting the following exercises, explore the data as much or as little as you like using code from this Lab.</p>
-<p><br></p>
-<div id="task-1" class="section level3 unnumbered hasAnchor">
-<h3>Task 1<a href="group-tasks.html#task-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Calculate a 95% confidence interval for the average length of pregnancies (<code>weeks</code>). Note that since you’re doing inference on a single population parameter, there is no explanatory variable.</p>
-<p><br></p>
-<p><strong>Complete the following sentence, giving your answers to 2 decimal places.</strong>
-We are 95% certain that the average length of pregnancy for the population of women is between <input class='webex-solveme nospaces' size='5' data-answer='["38.28"]'/> and <input class='webex-solveme nospaces' size='5' data-answer='["38.66"]'/> weeks.</p>
-<p><br></p>
+<p><img src="images/optional.jpg" width="80%" style="display: block; margin: auto;" /></p>
+<div id="context-1" class="section level2 unnumbered hasAnchor">
+<h2>Context<a href="group-tasks.html#context-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One of the first stages in preparing a patient for surgery is to administer a premedication. This is a mild sedative which is intended to relax the patient both psychologically and physically before he or she is given an appropriate anaesthetic and subsequently undergoes surgery. In an investigation of the effectiveness of three different premedications, a number of patients had their pulse rates recorded before and after one of the three premedications was administered. The effectiveness of a premedication on a particular patient can be quantified by the drop in recorded pulse rate.</p>
 </div>
-<div id="task-2" class="section level3 unnumbered hasAnchor">
-<h3>Task 2<a href="group-tasks.html#task-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Calculate a new confidence interval for the same parameter at the 90% confidence level.</p>
-<p><br></p>
-<p><strong>Complete the following sentence, giving your answers to 2 decimal places.</strong>
-We are 90% certain that the average length of pregnancy for the population of women is between <input class='webex-solveme nospaces' size='5' data-answer='["38.31"]'/> and <input class='webex-solveme nospaces' size='5' data-answer='["38.63"]'/> weeks.</p>
-<p><br></p>
+<div id="research-questions-1" class="section level2 unnumbered hasAnchor">
+<h2>Research Questions<a href="group-tasks.html#research-questions-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The research questions are as follows:</p>
+<ol style="list-style-type: decimal">
+<li>Is there any evidence of a difference in the abilities of the three premedications to lower pulse rate?</li>
+<li>If so, which premedications differ and by how much?</li>
+</ol>
 </div>
-<div id="task-3" class="section level3 unnumbered hasAnchor">
-<h3>Task 3<a href="group-tasks.html#task-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Conduct a hypothesis test evaluating whether the average weight gained by younger mothers is different than the average weight gained by mature mothers.</p>
-<p><strong>Hint</strong> Create a 95% confidence interval for the difference in mean weight gained between the two age groups. Don't forget to calculate a new standard error to use.</p>
+<div id="data-1" class="section level2 unnumbered hasAnchor">
+<h2>Data<a href="group-tasks.html#data-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The data contains the following variables:</p>
+<ul>
+<li><strong>Age</strong> : initial memory score before treatment</li>
+<li><strong>Drug</strong> : premedication codes (1-3)</li>
+<li><strong>DrugT</strong>: premedication codes (1-3)</li>
+<li><strong>Pulse_before</strong>: pulse rate before the premedication was administered</li>
+<li><strong>Pulse_after</strong>: pulse rate after the premedication was administered</li>
+<li><strong>Response</strong> : the difference between pulse rate before and pulse rate after premedication (before-after)</li>
+</ul>
+</div>
+<div id="loading-the-data" class="section level2 unnumbered hasAnchor">
+<h2>Loading the Data<a href="group-tasks.html#loading-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You may download the dataset named <code>premedications.csv</code> file from our Moodle course page. Save the file in your local computer and then use the <code>read.csv()</code> function to import the data in your R. You can load the data set into your workspace by running the code below in an Rscript file in your local Rstudio. Make sure that the <code>premedications.csv</code> file is saved in the same folder as the Rscript file.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="group-tasks.html#cb18-1" aria-hidden="true" tabindex="-1"></a>premed.data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&#39;premedications.csv&#39;</span>)</span></code></pre></div>
+<p>In addition, you need to load the following packages as well: <code>ggplot2</code> and <code>tidyverse</code>. To load the packages, you simply need to run the following:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="group-tasks.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb19-2"><a href="group-tasks.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+</div>
+<div id="task-1" class="section level2 unnumbered hasAnchor">
+<h2>Task 1<a href="group-tasks.html#task-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create boxplots of the response by each premedication and find the mean and standard deviation of the response in each premedication group.</p>
 <p><br></p>
-<p><strong>What are your conclusions from this hypothesis test?</strong></p>
+<p><strong>What are the null and alternative hypotheses?</strong></p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Given that the confidence interval contains 0, we reject the null hypothesis and conclude that there is a statistically significant difference in weight gained between younger and mature mothers in the population.</p></li>
-<li><p>Given that the confidence interval does not contain 0, we reject the null hypothesis and conclude that there is a statistically significant difference in weight gained between younger and mature mothers in the population.</p></li>
-<li><p>Given that the confidence interval does not contain 0, we do not reject the null hypothesis and conclude that there is no statistically significant difference in weight gained between younger and mature mothers in the population.</p></li>
-<li><p>Given that the confidence interval contains 0, we do not reject the null hypothesis and conclude that there is no statistically significant difference in weight gained between younger and mature mothers in the population.</p></li>
+<li><p><span class="math inline">\(H_0:\mu_{\text{drug 1}}=\mu_{\text{drug 2}}=\mu_{\text{drug 3}}\)</span> and <span class="math inline">\(H_A:\mu_{\text{drug 1}}\neq\mu_{\text{drug 2}}\text{ and }\mu_{\text{drug 1}}\neq\mu_{\text{drug 3}}\text{ and }\mu_{\text{drug 2}}\neq\mu_{\text{drug 2}}\)</span></p></li>
+<li><p><span class="math inline">\(H_0:\mu_{\text{drug 1}}=\mu_{\text{drug 2}}=\mu_{\text{drug 3}}\)</span> and <span class="math inline">\(H_A:\mu_{\text{drug 1}}\neq\mu_{\text{drug 2}}\neq\mu_{\text{drug 3}}\)</span></p></li>
+<li><p><span class="math inline">\(H_0:\mu_{\text{drug 1}}=\mu_{\text{drug 2}}=\mu_{\text{drug 3}}\)</span> and <span class="math inline">\(H_A:\mu_{\text{drug 1}}\neq\mu_{\text{drug 2}}\text{ or }\mu_{\text{drug 1}}\neq\mu_{\text{drug 3}}\text{ or }\mu_{\text{drug 2}}\neq\mu_{\text{drug 2}}\)</span></p></li>
+<li><p><span class="math inline">\(H_0:\mu_{\text{drug 1}}=\mu_{\text{drug 2}}\text{ or }\mu_{\text{drug 1}}=\mu_{\text{drug 3}}\text{ or }\mu_{\text{drug 2}}=\mu_{\text{drug 2}}\)</span> and <span class="math inline">\(H_A:\mu_{\text{drug 1}}\neq\mu_{\text{drug 2}}\neq\mu_{\text{drug 3}}\)</span></p></li>
 </ol>
 <p><br></p>
 </div>
-<div id="task-4" class="section level3 unnumbered hasAnchor">
-<h3>Task 4<a href="group-tasks.html#task-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Create side-by-side boxplots of the mothers' age (<code>mage</code>) for the two group; "mature mom" and "younger mom".</p>
+<div id="task-2" class="section level2 unnumbered hasAnchor">
+<h2>Task 2<a href="group-tasks.html#task-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Perform the ANOVA using the <code>aov()</code> function.</p>
 <p><br></p>
-<p><strong>Based on these boxplots, what would you say the age cutoff for a mother to be classified as a "younger mom" is?</strong></p>
+<p><strong>What is the value of SST?</strong>
+<input class='webex-solveme nospaces' size='5' data-answer='["13599"]'/></p>
+<p><br></p>
+<p><strong>Based on the p-value of the F-test, what is your conclusion?</strong></p>
 <ol style="list-style-type: lower-alpha">
-<li><p>25</p></li>
-<li><p>30</p></li>
-<li><p>35</p></li>
-<li><p>40</p></li>
+<li><p>Since the p-value is less than 0.05, we reject Ho and conclude that not all means are equal.</p></li>
+<li><p>Since the p-value is less than 0.05, we do not reject Ho and conclude that we don't have enough evidence to conclude that not all means are equal.</p></li>
+<li><p>Since the p-value is less than 0.05, we reject Ho and conclude that none of the means are equal to each other.</p></li>
+<li><p>Since the p-value is less than 0.05, we do not reject Ho and conclude that we don't have enough evidence to conclude that all means are equal."</p></li>
 </ol>
+<p><br></p>
+</div>
+<div id="task-3" class="section level2 unnumbered hasAnchor">
+<h2>Task 3<a href="group-tasks.html#task-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Perform multiple comparisons using the Bonferroni correction. Use the function <code>pairwise.t.test()</code>.</p>
+<p><br></p>
+<p><strong>What is the value of <span class="math inline">\(\alpha^*\)</span></strong> <em>(to 4 decimal places)</em>
+<input class='webex-solveme nospaces' size='6' data-answer='["0.0167",".0167"]'/></p>
+<p><br></p>
+<p><strong>Which pairs of means are significantly different?</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>No pairs</p></li>
+<li><p><span class="math inline">\(\mu_\text{drug 1}\)</span> and <span class="math inline">\(\mu_\text{drug 2}\)</span></p></li>
+<li><p><span class="math inline">\(\mu_\text{drug 1}\)</span> and <span class="math inline">\(\mu_\text{drug 3}\)</span></p></li>
+<li><p><span class="math inline">\(\mu_\text{drug 2}\)</span> and <span class="math inline">\(\mu_\text{drug 3}\)</span></p></li>
+</ol>
+<p><br></p>
+</div>
+<div id="task-4" class="section level2 unnumbered hasAnchor">
+<h2>Task 4<a href="group-tasks.html#task-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<strong>Based on the boxplots created in Task 1, is the assumption of equal variance between groups valid?</strong>
+<div id="radio_CZVTCUURSD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CZVTCUURSD" value="answer"></input> <span>Yes</span></label><label><input type="radio" autocomplete="off" name="radio_CZVTCUURSD" value=""></input> <span>No</span></label>
+</div>
+<p><br></p>
+<p>Create histograms for each of the 3 premedication groups to check the normality assumption.</p>
+<p><br></p>
+<strong>Based on these histograms, is the normality assumption valid?</strong>
+<div id="radio_YQNHXEPGQI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YQNHXEPGQI" value="answer"></input> <span>Yes</span></label><label><input type="radio" autocomplete="off" name="radio_YQNHXEPGQI" value=""></input> <span>No</span></label>
+</div>
 <p><br>
 <br></p>
 
-</div>
 </div>
 </div>
 <script>
@@ -414,7 +481,7 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="inference-on-means.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="graphical-diagnostics.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

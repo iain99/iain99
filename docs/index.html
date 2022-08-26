@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>S1Z Lab 1</title>
-  <meta name="description" content="S1Z Lab 1" />
+  <title>S1Z Lab 2</title>
+  <meta name="description" content="S1Z Lab 2" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="S1Z Lab 1" />
+  <meta property="og:title" content="S1Z Lab 2" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="S1Z Lab 1" />
+  <meta name="twitter:title" content="S1Z Lab 2" />
   
   
   
@@ -30,7 +30,7 @@
   
   
 
-<link rel="next" href="introducing-the-data.html"/>
+<link rel="next" href="coping-with-surgery.html"/>
 <script src="libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -134,34 +134,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="index.html#welcome-to-s1z-lab-1" id="toc-welcome-to-s1z-lab-1">Welcome to S1Z Lab 1<span></span></a>
+<li><a href="index.html#welcome-to-s1z-lab-1" id="toc-welcome-to-s1z-lab-1">Welcome to S1Z Lab 1<span></span></a></li>
+<li><a href="coping-with-surgery.html#coping-with-surgery" id="toc-coping-with-surgery">Coping With Surgery<span></span></a>
 <ul>
-<li><a href="index.html#tidyverse-packages" id="toc-tidyverse-packages"><code>tidyverse</code> packages<span></span></a></li>
+<li><a href="coping-with-surgery.html#context" id="toc-context">Context<span></span></a></li>
+<li><a href="coping-with-surgery.html#research-questions" id="toc-research-questions">Research Questions<span></span></a></li>
+<li><a href="coping-with-surgery.html#data" id="toc-data">Data<span></span></a></li>
 </ul></li>
-<li><a href="introducing-the-data.html#introducing-the-data" id="toc-introducing-the-data">Introducing The Data<span></span></a></li>
-<li><a href="inference-for-numerical-data.html#inference-for-numerical-data" id="toc-inference-for-numerical-data">Inference for Numerical Data<span></span></a>
+<li><a href="exploring-the-data.html#exploring-the-data" id="toc-exploring-the-data">Exploring the Data<span></span></a>
 <ul>
-<li><a href="inference-for-numerical-data.html#exercise-1" id="toc-exercise-1">Exercise 1<span></span></a></li>
-<li><a href="inference-for-numerical-data.html#exercise-2" id="toc-exercise-2">Exercise 2<span></span></a></li>
+<li><a href="exploring-the-data.html#importing-the-data" id="toc-importing-the-data">Importing the Data<span></span></a>
+<ul>
+<li><a href="exploring-the-data.html#exercise-1" id="toc-exercise-1">Exercise 1<span></span></a></li>
 </ul></li>
-<li><a href="inference-on-means.html#inference-on-means" id="toc-inference-on-means">Inference on Means<span></span></a>
+<li><a href="exploring-the-data.html#creating-boxplot" id="toc-creating-boxplot">Creating boxplot<span></span></a>
 <ul>
-<li><a href="inference-on-means.html#conditions-for-inference-or-a-normality-check" id="toc-conditions-for-inference-or-a-normality-check">Conditions for Inference, or, a Normality Check<span></span></a>
-<ul>
-<li><a href="inference-on-means.html#exercise-3" id="toc-exercise-3">Exercise 3<span></span></a></li>
-<li><a href="inference-on-means.html#exercise-4" id="toc-exercise-4">Exercise 4<span></span></a></li>
+<li><a href="exploring-the-data.html#exercise-2" id="toc-exercise-2">Exercise 2<span></span></a></li>
 </ul></li>
-<li><a href="inference-on-means.html#confidence-interval" id="toc-confidence-interval">Confidence Interval<span></span></a></li>
+<li><a href="exploring-the-data.html#producing-summary-measures" id="toc-producing-summary-measures">Producing summary measures<span></span></a>
+<ul>
+<li><a href="exploring-the-data.html#exercise-3" id="toc-exercise-3">Exercise 3<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="anova.html#anova" id="toc-anova">ANOVA<span></span></a>
+<ul>
+<li><a href="anova.html#hypotheses" id="toc-hypotheses">Hypotheses<span></span></a></li>
+<li><a href="anova.html#anova-table" id="toc-anova-table">ANOVA table<span></span></a>
+<ul>
+<li><a href="anova.html#exercise-4" id="toc-exercise-4">Exercise 4<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="multiple-comparisons.html#multiple-comparisons" id="toc-multiple-comparisons">Multiple Comparisons<span></span></a>
+<ul>
+<li><a href="multiple-comparisons.html#exercise-5" id="toc-exercise-5">Exercise 5<span></span></a></li>
+</ul></li>
+<li><a href="graphical-diagnostics.html#graphical-diagnostics" id="toc-graphical-diagnostics">Graphical Diagnostics<span></span></a>
+<ul>
+<li><a href="graphical-diagnostics.html#independence-assumption" id="toc-independence-assumption">Independence assumption<span></span></a></li>
+<li><a href="graphical-diagnostics.html#normality-assumption" id="toc-normality-assumption">Normality assumption<span></span></a>
+<ul>
+<li><a href="graphical-diagnostics.html#exercise-6" id="toc-exercise-6">Exercise 6<span></span></a></li>
+<li><a href="graphical-diagnostics.html#exercise-7" id="toc-exercise-7">Exercise 7<span></span></a></li>
+<li><a href="graphical-diagnostics.html#exercise-8" id="toc-exercise-8">Exercise 8<span></span></a></li>
+</ul></li>
+<li><a href="graphical-diagnostics.html#constant-variance-across-groups" id="toc-constant-variance-across-groups">Constant variance across groups<span></span></a></li>
 </ul></li>
 <li><a href="group-tasks.html#group-tasks" id="toc-group-tasks">Group Tasks<span></span></a>
 <ul>
-<li><a href="group-tasks.html#pregnancies-questions" id="toc-pregnancies-questions">Pregnancies Questions<span></span></a>
-<ul>
+<li><a href="group-tasks.html#context-1" id="toc-context-1">Context<span></span></a></li>
+<li><a href="group-tasks.html#research-questions-1" id="toc-research-questions-1">Research Questions<span></span></a></li>
+<li><a href="group-tasks.html#data-1" id="toc-data-1">Data<span></span></a></li>
+<li><a href="group-tasks.html#loading-the-data" id="toc-loading-the-data">Loading the Data<span></span></a></li>
 <li><a href="group-tasks.html#task-1" id="toc-task-1">Task 1<span></span></a></li>
 <li><a href="group-tasks.html#task-2" id="toc-task-2">Task 2<span></span></a></li>
 <li><a href="group-tasks.html#task-3" id="toc-task-3">Task 3<span></span></a></li>
 <li><a href="group-tasks.html#task-4" id="toc-task-4">Task 4<span></span></a></li>
-</ul></li>
 </ul></li>
 </ul>
 
@@ -172,7 +199,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">S1Z Lab 1</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">S1Z Lab 2</a>
           </h1>
         </div>
 
@@ -181,34 +208,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">S1Z Lab 1</h1>
+<h1 class="title">S1Z Lab 2</h1>
 </div>
 <div id="welcome-to-s1z-lab-1" class="section level1 unnumbered hasAnchor">
 <h1>Welcome to S1Z Lab 1<a href="index.html#welcome-to-s1z-lab-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><img src="images/naniar.jpg" width="100%" /></p>
-<p>In this lab, we will investigate the ways in which the statistics from a random sample can serve to make inference and <strong>test hypotheses</strong> about the true parameter in the larger population. We will explore here inference methods for numerical data. Before we begin however, let's revisit the difference between categorical and numerical data.</p>
-<p><strong>Categorical Data =</strong> Data where an observation can belong to one of a certain fixed number of categories or groups. For example, someone's bloodtype. Your bloodtype can be one of A, B, AB or O.</p>
-<p><strong>Numerical Data =</strong> Data in the form of numbers; rather than being defined as a member of some group or category. It also must make sense for calculations to be performed on those numbers, such as adding them or taking averages of them. This is important, for example a phone number is a number but it doesn't make sense to add phone numbers together. An example of numerical data is your height. It's measured with a number you can perform calculations directly on such as averages. Another example would be a count of the number of patients seen at a GP Surgery in a day.</p>
-<p>The material within this lab has been based on <a href="https://www.openintro.org/redirect.php?go=os4_tablet&referrer=/stat/os4.php#page=206">OpenIntro Chapter 7</a>. Feel free to refer back to the materials to help you within this lab.</p>
+<p><img src="images/image1.jpg" width="100%" /></p>
+<p>In this lab activity, we will learn how to perform an ANOVA using R. The material within this lab has been based on OpenIntro Chapters 7
+<a href="https://www.openintro.org/redirect.php?go=os4_tablet&referrer=/stat/os4.php#page=285">OpenIntro Page 285</a>. Feel free to refer back to the materials to help you with this lab. As explained in lab 0, all lab work in S1Z are self contained through the use of <code>R</code> consoles.</p>
+<p>The material within this lab has been based on OpenIntro. All of the artwork used is by <a href="https://github.com/allisonhorst/stats-illustrations"><span class="citation">@allison_horst</span></a>.</p>
 <p><br></p>
-<div id="tidyverse-packages" class="section level2 unnumbered hasAnchor">
-<h2><code>tidyverse</code> packages<a href="index.html#tidyverse-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>These labs use <strong>packages</strong> from the <code>tidyverse</code> suite of packages, which has been called "the most powerful collection of R Packages for data science". You don't need to go into much depth for these labs, but if you were interested, this <a href="https://tidyverse-intro.github.io/">intro</a> is a good place to start.</p>
-<p><em>Aside:</em> A <strong>package</strong> in R is just a collection of functions, data, documentation and compiled code that people have created to easily access and share with others.</p>
-<p>To run the code that appears in the consoles in this lab in your own version of RStudio, start by installing and loading these packages.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
-<span id="cb1-2"><a href="index.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;infer&quot;</span>)</span>
-<span id="cb1-3"><a href="index.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;openintro&quot;</span>)</span>
-<span id="cb1-4"><a href="index.html#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="index.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-6"><a href="index.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(infer)</span>
-<span id="cb1-7"><a href="index.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span></code></pre></div>
-<p><br></p>
-<p><strong>Credit where credit is due</strong></p>
-<p><img style="float: right;" src="images/OIBookImage.png" width="100"/></p>
-<p>The labs in S1Y/Z are a derivative of the labs on the <a href="https://www.openintro.org/book/os/">OpenIntro Statistics website</a> by the <a href="https://www.openintro.org/team/"> OpenIntro team</a> used under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. Some of the artwork used is by <a href="https://github.com/allisonhorst/stats-illustrations"><span class="citation">@allison_horst</span></a></p>
 
-</div>
 </div>
 <script>
 
@@ -387,7 +396,7 @@ window.onload = function() {
         </div>
       </div>
 
-<a href="introducing-the-data.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="coping-with-surgery.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
